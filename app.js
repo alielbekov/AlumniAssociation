@@ -8,9 +8,12 @@ app = express();
 
 
 app.get("/", function(req, res){
-  res.send("Its working");
+
+  res.sendFile(__dirname + "/index.html");
+
 })
 
+
+
 app.listen(3000, function(){
-  console.log("Hello world")
 })
