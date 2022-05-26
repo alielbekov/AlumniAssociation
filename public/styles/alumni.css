@@ -1,0 +1,23 @@
+.container{
+  margin-bottom: 80px;
+}
+.col{
+}
+.row{
+  padding: 0;
+}
+.profile{
+  padding: 20px;
+  text-align: left;
+  background-color: #DEE2E6;
+}
+.container{
+  margin-top:5%;
+}
+.profile-pic{
+   width: 200px;
+}
+.profile-contact{
+  margin: 0;
+  height: 16px;
+}

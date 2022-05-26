@@ -1,3 +1,5 @@
+
+/* footer css */
 #footer {
   padding: 1.5rem;
   background-color: #CED4DA;
@@ -8,4 +10,36 @@ a{
 }
 a:hover{
   color: #6C757D;
+}
+/* alumni page css */
+.alumnus{
+    background-color: CED4DA;
+}
+.container{
+  margin-bottom: 80px;
+}
+.col{
+}
+
+.row{
+  padding: 0;
+}
+.profile{
+  padding: 20px;
+  text-align: left;
+  background-color: #DEE2E6;
+}
+.container{
+  margin-top:5%;
+}
+.profile-pic{
+   width: 200px;
+}
+.profile-contact{
+  margin: 0;
+  height: 16px;
+}
+/* other css */
+body{
+  /* background-color: #F8F9FA; */
 }
