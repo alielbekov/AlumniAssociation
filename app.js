@@ -48,7 +48,7 @@ var alumni = [{
 var alumniHtml = alumniObject.getContentHtml(alumni);
 app.get("/", function(req, res) {
   res.render('list', {
-    content: 'Main content'
+    content: 'Main content',
   });
 });
 
