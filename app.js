@@ -24,6 +24,7 @@ var alumni = [{
     mail: "sobitxanovr@email.arizona.edu",
     photoPath: "/images/Rustam.jpg"
   },
+
    {
     fname: "Otabek",
     lname: "Abduraimov",
@@ -41,9 +42,38 @@ var alumni = [{
     lname: "Sobirjonov",
     mail: "SobirjonovKhan@gmail.com",
     photoPath: "/images/Khan.jpg"
-  }
-];
+  }];
 
+var newsletter = [{
+    author: "Ali Elbekov",
+     title: "Why thank you!",
+      date: "Jan 12, 2022",
+   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
+     Massa tincidunt dui ut ornare lectus sit. Massa tincidunt nunc pulvinar\
+      sapien. Scelerisque fermentum dui faucibus in ornare quam viverra. Praesent\
+       elementum facilisis leo vel fringilla est u"
+},
+{
+    author: "Ali Elbekov",
+     title: "Why thank you!",
+      date: "Jan 12, 2022",
+   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
+     Massa tincidunt dui ut ornare lectus sit. Massa tincidunt nunc pulvinar\
+      sapien. Scelerisque fermentum dui faucibus in ornare quam viverra. Praesent\
+       elementum facilisis leo vel fringilla est u"
+},
+{
+    author: "Ali Elbekov",
+     title: "Why thank you!",
+      date: "Jan 12, 2022",
+   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
+     Massa tincidunt dui ut ornare lectus sit. Massa tincidunt nunc pulvinar\
+      sapien. Scelerisque fermentum dui faucibus in ornare quam viverra. Praesent\
+       elementum facilisis leo vel fringilla est u"
+},]
 
 var alumniHtml = alumniObject.getContentHtml(alumni);
 app.get("/", function(req, res) {
