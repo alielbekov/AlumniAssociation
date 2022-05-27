@@ -41,5 +41,10 @@ a:hover{
 }
 /* other css */
 body{
-  /* background-color: #F8F9FA; */
+  background-color: #F8F9FA;
+  background-image: url('../images/main-background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #cccccc;
 }
