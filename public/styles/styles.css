@@ -39,6 +39,22 @@ a:hover{
   margin: 0;
   height: 16px;
 }
+
+/* newsletter css */
+.news-letter-title{
+  background-color: #C2C4C6;
+    text-align: center;
+}
+
+.newsletter-content{
+  background-color:   #DEE2E6;
+  padding: 20px;
+}
+.newsletter-info{
+  background-color: #C2C4C6;
+  text-align: right;
+}
+
 /* other css */
 body{
   background-color: #F8F9FA;

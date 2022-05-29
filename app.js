@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const alumniObject = require(__dirname + "/views/alumniContent.js");
+const newsletterObject = require(__dirname + "/views/newsletterContent.js");
 
 
 app.use(bodyParser.urlencoded({
@@ -44,7 +45,7 @@ var alumni = [{
     photoPath: "/images/Khan.jpg"
   }];
 
-var newsletter = [{
+var newsletters = [{
     author: "Ali Elbekov",
      title: "Why thank you!",
       date: "Jan 12, 2022",
@@ -76,6 +77,7 @@ var newsletter = [{
 },]
 
 var alumniHtml = alumniObject.getContentHtml(alumni);
+var newslettersHtml = newsletterObject.getContentHtml(newsletters);
 app.get("/", function(req, res) {
   res.render('list', {
     content: 'Main content',
@@ -84,7 +86,7 @@ app.get("/", function(req, res) {
 
 app.get("/Newsletter", function(req, res) {
   res.render('list', {
-    content: 'News letter content'
+    content: newslettersHtml
   });
 })
 
@@ -93,12 +95,14 @@ app.get("/Events", function(req, res) {
     content: 'Events content'
   });
 })
-app.get("/Alumnii", function(req, res) {
 
+app.get("/Alumnii", function(req, res) {
   res.render('list', {
     content: alumniHtml
   });
 })
+
+
 app.get("/About", function(req, res) {
   res.render('list', {
     content: 'Main content'
