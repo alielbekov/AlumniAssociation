@@ -5,11 +5,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const alumniObject = require(__dirname + "/views/alumniContent.js");
 const newsletterObject = require(__dirname + "/views/newsletterContent.js");
-
-
-app.use(bodyParser.urlencoded({
-  extended: true
-}))
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
@@ -47,7 +43,7 @@ var alumni = [{
 
 var newsletters = [{
     author: "Ali Elbekov",
-     title: "Why thank you!",
+     title: "Why, thank you!",
       date: "Jan 12, 2022",
    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
@@ -57,7 +53,7 @@ var newsletters = [{
 },
 {
     author: "Ali Elbekov",
-     title: "Why thank you!",
+     title: "Why thank, you!",
       date: "Jan 12, 2022",
    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
@@ -67,7 +63,7 @@ var newsletters = [{
 },
 {
     author: "Ali Elbekov",
-     title: "Why thank you!",
+     title: "Why, thank you!",
       date: "Jan 12, 2022",
    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
@@ -88,6 +84,24 @@ app.get("/Newsletter", function(req, res) {
   res.render('list', {
     content: newslettersHtml
   });
+})
+app.get("/Newsletter/add", function(req, res) {
+  res.render('addNewsletter', {
+  });
+})
+
+app.post("/", function(req, res) {
+  var newsletterAuthor = req.body['newsletter-author']
+  var newsletterTitle = req.body['newsletter-title']
+  var newsletterContent = req.body['newsletter-content']
+
+  newsletters.unshift({author: newsletterAuthor,
+                       title: newsletterTitle,
+                       date: "Date here",
+                       content: newsletterContent});
+  // Need to think about the below line
+  newslettersHtml  =  newsletterObject.getContentHtml(newsletters);
+  res.redirect("/Newsletter");
 })
 
 app.get("/Events", function(req, res) {

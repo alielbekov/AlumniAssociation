@@ -1,0 +1,26 @@
+<%- include("header") -%>
+<%- include("navbar") -%>
+  <body>
+    <div class="container">
+
+
+  <form action="/" method="post">
+   <div class="form-group">
+     <strong><label>Author</label></strong>
+     <input name = "newsletter-author" type="text" class="form-control" placeholder="Ali Elbekov (for example)">
+   </div>
+   <div class="form-group">
+     <strong><label>Title</label></strong>
+     <input name = "newsletter-title" type="text" class="form-control" placeholder="Arabian nights (for example)">
+   </div>
+   <div class="form-group">
+     <strong><label>Newsletter</label></strong>
+     <textarea name= "newsletter-content" class="form-control"  rows="5" ></textarea>
+   </div>
+   <div class="" style = "float:right">
+   <button class ="btn bg-dark text-white" type="submit">Submit</button>
+   </div>
+ </form>
+ </div>
+</body>
+<%- include("footer") -%>
