@@ -3,81 +3,37 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const mongoose = require("mongoose");
 const alumniObject = require(__dirname + "/views/alumniContent.js");
 const newsletterObject = require(__dirname + "/views/newsletterContent.js");
+mongoose.connect("mongodb://localhost:27017/test", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
-var alumni = [{
-    fname: "Ali",
-    lname: "Elbekov",
-    mail: "eldorbek2001@email.arizona.edu",
-    photoPath: "/images/Ali.jpg"
-  },
-  {
-    fname: "Rustam",
-    lname: "Sobitxanov",
-    mail: "sobitxanovr@email.arizona.edu",
-    photoPath: "/images/Rustam.jpg"
-  },
+var newsSchema = {
+author: String,
+titlle: String,
+date: String,
+content: String
+}
+var alumniSchema = {
+fname: String,
+lname: String,
+mail: String,
+photoPath: String
+}
 
-   {
-    fname: "Otabek",
-    lname: "Abduraimov",
-    mail: "AbduraimovO@email.arizona.edu",
-    photoPath:"/images/Otabek.jpg"
-  },
-   {
-    fname: "Saidbek",
-    lname: "Qodirjanov",
-    mail: "QodirjanovS@email.arizona.edu",
-    photoPath: "/images/Saidbek.jpg"
-  },
-   {
-    fname: "Khan",
-    lname: "Sobirjonov",
-    mail: "SobirjonovKhan@gmail.com",
-    photoPath: "/images/Khan.jpg"
-  }];
+const News = mongoose.model("news", newsSchema);
+const Alumni = mongoose.model("users", alumniSchema);
+var alumniObj = Alumni.find(function(err, callback){if(err){console.log(err)}});
+var newsObj = News.find(function(err, callback){if(err){console.log(err)}});
+var alumniHtml = alumniObject.getContentHtml(alumniObj);
+var newslettersHtml = newsletterObject.getContentHtml(newsObj);
 
-var newsletters = [{
-    author: "Ali Elbekov",
-     title: "Why, thank you!",
-      date: "Jan 12, 2022",
-   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
-     Massa tincidunt dui ut ornare lectus sit. Massa tincidunt nunc pulvinar\
-      sapien. Scelerisque fermentum dui faucibus in ornare quam viverra. Praesent\
-       elementum facilisis leo vel fringilla est u"
-},
-{
-    author: "Ali Elbekov",
-     title: "Why thank, you!",
-      date: "Jan 12, 2022",
-   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
-     Massa tincidunt dui ut ornare lectus sit. Massa tincidunt nunc pulvinar\
-      sapien. Scelerisque fermentum dui faucibus in ornare quam viverra. Praesent\
-       elementum facilisis leo vel fringilla est u"
-},
-{
-    author: "Ali Elbekov",
-     title: "Why, thank you!",
-      date: "Jan 12, 2022",
-   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\
-     Massa tincidunt dui ut ornare lectus sit. Massa tincidunt nunc pulvinar\
-      sapien. Scelerisque fermentum dui faucibus in ornare quam viverra. Praesent\
-       elementum facilisis leo vel fringilla est u"
-},]
 
-var alumniHtml = alumniObject.getContentHtml(alumni);
-var newslettersHtml = newsletterObject.getContentHtml(newsletters);
 app.get("/", function(req, res) {
-  res.render('list', {
-    content: 'Main content',
-  });
+  res.render('list', {content: 'Main content'});
 });
 
 app.get("/Newsletter", function(req, res) {
@@ -85,9 +41,9 @@ app.get("/Newsletter", function(req, res) {
     content: newslettersHtml
   });
 })
+
 app.get("/Newsletter/add", function(req, res) {
-  res.render('addNewsletter', {
-  });
+  res.render('addNewsletter', {});
 })
 
 app.post("/", function(req, res) {
@@ -115,7 +71,6 @@ app.get("/Alumnii", function(req, res) {
     content: alumniHtml
   });
 })
-
 
 app.get("/About", function(req, res) {
   res.render('list', {
