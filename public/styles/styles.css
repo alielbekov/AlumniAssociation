@@ -1,6 +1,6 @@
 
 /* footer css */
-#footer {
+.footer {
   padding: 1.5rem;
   background-color: #CED4DA;
   text-align: center;
@@ -38,6 +38,26 @@ a:hover{
 .profile-contact{
   margin: 0;
   height: 16px;
+}
+
+/* newsletter css */
+.news-letter-title{
+  background-color: #C2C4C6;
+    text-align: center;
+}
+
+.newsletter-content{
+  background-color:   #DEE2E6;
+  padding: 20px;
+}
+.newsletter-info{
+  background-color: #C2C4C6;
+  text-align: right;
+}
+
+.login-area .btn{
+  padding: 0, 10px, 0, 10px;
+  margin: 0 10px 0 0;
 }
 /* other css */
 body{
