@@ -54,11 +54,22 @@ a:hover{
   background-color: #C2C4C6;
   text-align: right;
 }
-
+/* login area css */
 .login-area .btn{
-  padding: 0, 10px, 0, 10px;
-  margin: 0 10px 0 0;
+  padding: 5px 10px 5px 10px;
+  margin: 0 10px 0 10px;
 }
+.login-area{
+  padding: 2px;
+  margin-right: 10px;
+}
+
+/* login and register pages*/
+.centered {
+    padding-top: 200px;
+    text-align: center;
+}
+
 /* other css */
 body{
   background-color: #F8F9FA;

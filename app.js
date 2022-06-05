@@ -17,7 +17,6 @@ title: String,
 date: String,
 content: String
 }
-
 var alumniSchema = {
 fname: String,
 lname: String,
@@ -25,14 +24,8 @@ mail: String,
 photoPath: String,
 role: String
 }
-
 const News = mongoose.model("news", newsSchema);
 const Alumni = mongoose.model("users", alumniSchema);
-
-
-//
-// var alumniHtml = alumniObject.getContentHtml(alumniObj);
-// var newslettersHtml = newsletterObject.getContentHtml(newsObj);
 
 
 app.get("/", function(req, res) {
@@ -67,10 +60,6 @@ app.post("/News", function(req, res) {
   res.redirect("/News");
 })
 
-app.get("/Events", function(req, res) {
-  res.render('list', {content: 'Events content'});
-})
-
 app.get("/Alumnii", function(req, res) {
   var alumniObj = Alumni.find(function(err, callback){
     if(err){res.render('list', {content: err});
@@ -79,12 +68,25 @@ app.get("/Alumnii", function(req, res) {
       res.render('list', {content: alumniHtml});
     }});
 })
+app.get("/login", function(req, res) {
+  res.render('login', {content: 'Main content'});
+});
+
+app.get("/register", function(req, res) {
+  res.render('register', {content: 'Main content'});
+});
+
 
 app.get("/faqs", function(req, res) {
   res.render('list', {
     content: 'FAQs'
   });
 })
+
+app.get("/Events", function(req, res) {
+  res.render('list', {content: 'Events content'});
+})
+
 
 
 app.listen(process.env.PORT || 3000, function() {})
