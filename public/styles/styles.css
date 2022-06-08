@@ -1,6 +1,7 @@
 
 /* footer css */
 .footer {
+  bottom: 0;
   padding: 1.5rem;
   background-color: #CED4DA;
   text-align: center;
@@ -42,6 +43,7 @@ a:hover{
 
 /* newsletter css */
 .news-letter-title{
+  padding: 0 10px 0 10px;
   background-color: #C2C4C6;
     text-align: center;
 }
@@ -49,6 +51,10 @@ a:hover{
 .newsletter-content{
   background-color:   #DEE2E6;
   padding: 20px;
+}
+.newsletter-info-source{
+  background-color: #C2C4C6;
+  text-align: left;
 }
 .newsletter-info{
   background-color: #C2C4C6;
