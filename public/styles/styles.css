@@ -78,10 +78,16 @@ a:hover{
 
 /* other css */
 body{
+  /* background */
   background-color: #F8F9FA;
   background-image: url('../images/main-background.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #cccccc;
+  /* footer-fixing */
+  text-align: center;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height:100vh;
 }
