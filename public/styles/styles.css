@@ -10,11 +10,11 @@
 
 /* Login/Register */
 main{
-  background-color: white;
+  background-color: #ADB5BD;
 }
   .form-signin {
-    max-width: 330px;
-    padding: 15px;
+    max-width: 400px;
+    padding: 20px;
   }
 
   .form-signin .form-floating:focus-within {
