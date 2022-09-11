@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
+const moment = require("moment");
 const app = express();
 const mongoose = require("mongoose");
 const alumniObject = require(__dirname + "/views/alumniContent.js");
@@ -10,6 +11,8 @@ mongoose.connect("mongodb+srv://"+process.env.API_USERNAME+":"+process.env.API_K
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
+
+
 
 var newsSchema = {
 author: String,
@@ -26,30 +29,32 @@ mail: String,
 photoPath: String,
 role: String
 }
+var authSchema = {
+  email: String,
+  pwd: String
+}
+const User = mongoose.model("auth", authSchema);
 const News = mongoose.model("news", newsSchema);
 const Alumni = mongoose.model("users", alumniSchema);
 
 
-
 app.get("/", function(req, res) {
-  res.render('list', {content: 'Main content'});
+  res.render('list', {content: 'home', htmls:""});
 });
 
-app.get("/News", function(req, res) {
+app.get("/news", function(req, res) {
   var newsObj = News.find({}).sort([['date', -1]]).exec(function(err, callback){
     if(err){ res.render('list', {content: err});
     }else{
       const newslettersHtml = newsletterObject.getContentHtml(callback);
-      res.render('list', {content: newslettersHtml});
+      //fix data
+      res.render('list', {content: "news", htmls: newslettersHtml});
     }});
 
 })
 
-app.get("/News/add", function(req, res) {
-  res.render('addNewsletter', {});
-})
 
-app.post("/News", function(req, res) {
+app.post("/news", function(req, res) {
 
   const time = new Date();
   var newsletterAuthor = req.body['newsletter-author'];
@@ -63,34 +68,37 @@ app.post("/News", function(req, res) {
     content: newsletterContent
   });
   news.save();
-  res.redirect("/News");
+  res.redirect("/news");
 })
 
-app.get("/Alumnii", function(req, res) {
+app.get("/alumnii", function(req, res) {
   var alumniObj = Alumni.find(function(err, callback){
     if(err){res.render('list', {content: err});
     }else{
       const alumniHtml = alumniObject.getContentHtml(callback);
-      res.render('list', {content: alumniHtml});
+      //fix data !!!
+      res.render('list', {content:"alumni", htmls:alumniHtml});
     }});
 })
+
 app.get("/login", function(req, res) {
-  res.render('login', {content: 'Main content'});
+  res.render('list', {content: 'login',
+htmls:"a"});
 });
 
 app.get("/register", function(req, res) {
-  res.render('register', {content: 'Main content'});
+  res.render('list', {content: 'register',
+htmls:"a"});
 });
 
-
 app.get("/faqs", function(req, res) {
-  res.render('list', {
-    content: 'FAQs'
-  });
+  res.render('list', {content: 'faqs',
+htmls:"a"});
 })
 
-app.get("/Events", function(req, res) {
-  res.render('list', {content: 'Events content'});
+app.get("/events", function(req, res) {
+  res.render('list', {content: 'events',
+htmls:"a"});
 })
 
 

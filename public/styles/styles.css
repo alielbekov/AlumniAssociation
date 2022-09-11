@@ -1,3 +1,49 @@
+/* Navbar */
+
+.navbar-brand img{
+  height: 80px;
+  width: 80px;
+  float: left;
+
+}
+
+
+/* Login/Register */
+main{
+  background-color: white;
+}
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+  }
+
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+
+  .form-signin {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .form-signin{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .socials .col .btn .icons{
+    max-width: 50px;
+    height: auto;
+    margin: 0 5px 0 5px;
+  }
+  #logo-image{
+    border: solid gray 1px;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+  }
+
+
 
 /* footer css */
 .footer {
@@ -6,10 +52,12 @@
   background-color: #CED4DA;
   text-align: center;
 }
-a{
+.footer p a{
+  margin-left: 10px;
+  margin-right: 10px;
   color: inherit;
 }
-a:hover{
+.footer p a:hover{
   color: #6C757D;
 }
 /* alumni page css */
@@ -19,9 +67,6 @@ a:hover{
 .container{
   margin-bottom: 80px;
 }
-.col{
-}
-
 .row{
   padding: 0;
 }
