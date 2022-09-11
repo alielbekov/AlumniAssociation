@@ -96,6 +96,7 @@ main{
 .newsletter-content{
   background-color:   #DEE2E6;
   padding: 20px;
+  text-align: justify;
 }
 .newsletter-info-source{
   background-color: #C2C4C6;
